@@ -7,6 +7,10 @@
 //
 
 #import "JXSegment.h"
+#import "UIView+JXView.h"
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+
 @interface JXSegment(){
     NSArray *widthArray;
     NSInteger _allButtonW;
@@ -51,6 +55,7 @@
 
 - (void)updateChannels:(NSArray*)array{
     
+    _isOneChannelPage = NO;
     NSMutableArray *widthMutableArray = [NSMutableArray array];
     NSInteger totalW = 0;
     for (int i = 0; i < array.count; i++) {
@@ -73,7 +78,21 @@
             _divideView.frame = CGRectMake(0, _scrollView.bounds.size.height-2, buttonW, 2);
             _selectedIndex = 0;
         }
-        
+    }
+    
+    //如果不足屏幕宽度，平分
+    if (totalW <= SCREEN_WIDTH) {
+        CGFloat buttonW = SCREEN_WIDTH/array.count;
+        [widthMutableArray removeAllObjects];
+        UIButton *button;
+        for (int i=0; i<array.count; i++) {
+            button = [self.scrollView viewWithTag:1000+i];
+            [button setX:i*buttonW];
+            [button setWidth:buttonW];
+            [widthMutableArray addObject:@(buttonW)];
+            _isOneChannelPage = YES;
+        }
+        [_divideView setWidth:buttonW];
     }
     
     _allButtonW = totalW;
@@ -97,10 +116,12 @@
     
     //处理边界
     CGFloat selectW = [[widthArray objectAtIndex:_selectedIndex] integerValue];
-    CGFloat offset = totalW + (selectW - self.bounds.size.width) *0.5 ;
-    offset = MIN(_allButtonW - self.bounds.size.width, MAX(0, offset));
+    if (!_isOneChannelPage) {
+        CGFloat offset = totalW + (selectW - self.bounds.size.width) *0.5 ;
+        offset = MIN(_allButtonW - self.bounds.size.width, MAX(0, offset));
+        [_scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
+    }
 
-    [_scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
     if ([_delegate respondsToSelector:@selector(JXSegment:didSelectIndex:)]) {
         [_delegate JXSegment:self didSelectIndex:_selectedIndex];
     }

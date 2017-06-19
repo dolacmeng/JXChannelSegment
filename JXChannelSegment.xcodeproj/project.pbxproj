@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32F1D35B1EF7816B00E651C3 /* UIView+JXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F1D35A1EF7816B00E651C3 /* UIView+JXView.m */; };
 		5D8B30ED1D8C0509002FAD60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B30EC1D8C0509002FAD60 /* main.m */; };
 		5D8B30F01D8C0509002FAD60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B30EF1D8C0509002FAD60 /* AppDelegate.m */; };
 		5D8B30F31D8C0509002FAD60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B30F21D8C0509002FAD60 /* ViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32F1D3591EF7816B00E651C3 /* UIView+JXView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JXView.h"; sourceTree = "<group>"; };
+		32F1D35A1EF7816B00E651C3 /* UIView+JXView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JXView.m"; sourceTree = "<group>"; };
 		5D8B30E81D8C0509002FAD60 /* JXChannelSegment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JXChannelSegment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D8B30EC1D8C0509002FAD60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5D8B30EE1D8C0509002FAD60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +48,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32F1D35C1EF785C500E651C3 /* JXChannelSegmentLib */ = {
+			isa = PBXGroup;
+			children = (
+				32F1D3591EF7816B00E651C3 /* UIView+JXView.h */,
+				32F1D35A1EF7816B00E651C3 /* UIView+JXView.m */,
+				5D8B31051D8C4DA7002FAD60 /* JXPageView.h */,
+				5D8B31061D8C4DA7002FAD60 /* JXPageView.m */,
+				5D8B31021D8C061C002FAD60 /* JXSegment.h */,
+				5D8B31031D8C061C002FAD60 /* JXSegment.m */,
+			);
+			name = JXChannelSegmentLib;
+			sourceTree = "<group>";
+		};
 		5D8B30DF1D8C0509002FAD60 = {
 			isa = PBXGroup;
 			children = (
@@ -64,18 +80,11 @@
 		5D8B30EA1D8C0509002FAD60 /* JXChannelSegment */ = {
 			isa = PBXGroup;
 			children = (
-				5D8B31051D8C4DA7002FAD60 /* JXPageView.h */,
-				5D8B31061D8C4DA7002FAD60 /* JXPageView.m */,
-				5D8B31021D8C061C002FAD60 /* JXSegment.h */,
-				5D8B31031D8C061C002FAD60 /* JXSegment.m */,
-				5D8B30EE1D8C0509002FAD60 /* AppDelegate.h */,
-				5D8B30EF1D8C0509002FAD60 /* AppDelegate.m */,
+				32F1D35C1EF785C500E651C3 /* JXChannelSegmentLib */,
 				5D8B30F11D8C0509002FAD60 /* ViewController.h */,
 				5D8B30F21D8C0509002FAD60 /* ViewController.m */,
 				5D8B30F41D8C0509002FAD60 /* Main.storyboard */,
 				5D8B30F71D8C0509002FAD60 /* Assets.xcassets */,
-				5D8B30F91D8C0509002FAD60 /* LaunchScreen.storyboard */,
-				5D8B30FC1D8C0509002FAD60 /* Info.plist */,
 				5D8B30EB1D8C0509002FAD60 /* Supporting Files */,
 			);
 			path = JXChannelSegment;
@@ -84,6 +93,10 @@
 		5D8B30EB1D8C0509002FAD60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D8B30F91D8C0509002FAD60 /* LaunchScreen.storyboard */,
+				5D8B30FC1D8C0509002FAD60 /* Info.plist */,
+				5D8B30EE1D8C0509002FAD60 /* AppDelegate.h */,
+				5D8B30EF1D8C0509002FAD60 /* AppDelegate.m */,
 				5D8B30EC1D8C0509002FAD60 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -120,6 +133,7 @@
 				TargetAttributes = {
 					5D8B30E71D8C0509002FAD60 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 47HD5S74D3;
 					};
 				};
 			};
@@ -164,6 +178,7 @@
 				5D8B30F01D8C0509002FAD60 /* AppDelegate.m in Sources */,
 				5D8B30ED1D8C0509002FAD60 /* main.m in Sources */,
 				5D8B31041D8C061C002FAD60 /* JXSegment.m in Sources */,
+				32F1D35B1EF7816B00E651C3 /* UIView+JXView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 47HD5S74D3;
 				INFOPLIST_FILE = JXChannelSegment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.cqut.JXChannelSegment;
@@ -286,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 47HD5S74D3;
 				INFOPLIST_FILE = JXChannelSegment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.cqut.JXChannelSegment;
@@ -312,6 +329,7 @@
 				5D8B31011D8C0509002FAD60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

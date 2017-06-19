@@ -22,6 +22,7 @@
 @property (nonatomic,strong) UIFont *textFont;
 @property (nonatomic,assign) NSInteger selectedIndex;
 @property (nonatomic,weak) id<JXSegmentDelegate> delegate;
+@property(nonatomic,assign) BOOL isOneChannelPage;
 
 - (void)updateChannels:(NSArray*)array;
 - (void)didChengeToIndex:(NSInteger)index;

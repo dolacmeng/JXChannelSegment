@@ -17,14 +17,20 @@
     JXSegment *segment;
 }
 
+@property(nonatomic,strong) NSArray *channelArray;
+
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     segment = [[JXSegment alloc] initWithFrame:CGRectMake(0, 60, SCREEN_WIDTH, 40)];
-    [segment updateChannels:@[@"首页",@"文章",@"好东西",@"早点与宵夜",@"电子小物",@"苹果",@"收纳集合",@"JBL",@"装b利器",@"测试机啦啦",@"乱七八糟的"]];
+    [segment updateChannels:self.channelArray];
+
     segment.delegate = self;
     [self.view addSubview:segment];
     
@@ -36,14 +42,16 @@
     [self.view addSubview:pageView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (NSArray*)channelArray{
+    if (_channelArray == nil) {
+        _channelArray = @[@"首页",@"文章",@"好东西",@"早点与宵夜",@"电子小物",@"苹果",@"收纳集合",@"JBL",@"装b利器",@"测试机啦啦",@"乱七八糟的"];
+    }
+    return _channelArray;
 }
-
 
 #pragma mark - JXPageViewDataSource
 -(NSInteger)numberOfItemInJXPageView:(JXPageView *)pageView{
-    return 11;
+    return self.channelArray.count;
 }
 
 -(UIView*)pageView:(JXPageView *)pageView viewAtIndex:(NSInteger)index{
